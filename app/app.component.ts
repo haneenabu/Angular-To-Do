@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
     <h3>{{currentFocus}}</h3>
     <ul>
       <li *ngFor="let currentTask of tasks">{{currentTask.description}}</li>
+      <h1>{{jessica}}</h1>
     </ul>
   </div>
   `
@@ -32,11 +33,16 @@ export class AppComponent {
     new Task('Add README file to last few Angular repos on GitHub')
   ]
 
+  jessica: object [] = this.tasks.filter( function(e) {
+    return !e.done;
+  });
 
 }
 
 export class Task {
   public done: boolean = false;
-  constructor(public description: string){}
+  constructor(public description: string) {
+
+  }
   // constructor( public inputArray: string[], public homies: string,  ) {}
 }
